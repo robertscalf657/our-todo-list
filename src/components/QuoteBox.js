@@ -5,10 +5,6 @@ const QuoteBox = () => {
   const [quote, setQuote] = useState("");
   const joke = useRandomJoke();
 
-  console.log("joke", joke.value);
-
-  console.log("quote", quote);
-
   useEffect(() => {
     getQuote();
   }, []);
@@ -22,21 +18,22 @@ const QuoteBox = () => {
       });
   };
   return (
-    <div className="max-w-3xl mx-auto">
-      <p className="text-sm font-semibold italic">{quote.text}</p>
+    <div className="max-w-3xl mx-auto py-10">
+      <p className="font-bold text-xl italic">{quote.text}</p>
 
       <p>
-        <span>{quote.author}</span>
+        <span className="font-bold text-sm">{quote.author}</span>
       </p>
-      <p className="text-sm font-semibold italic">{joke.value}</p>
-      <div className="mt-10">
+
+      <p className="font-bold text-xl italic pt-4">{joke.value}</p>
+      <div className="mt-2">
         <a
           className="text-lg font-bold"
           href={joke.url}
           target="_blank"
           rel="noreferrer"
         >
-          Ha Ha
+          More Chuck Jokes
         </a>
       </div>
     </div>
